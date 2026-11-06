@@ -14,7 +14,7 @@ pd.set_option('display.max_rows', None) # Display option to show all rows
 
 #1
 while True:
-    directory = single_input('Please input the directory to the folder where ProductData.xlsx, MaterInvoice.pdf, and Order Files are located.')
+    directory = single_input('Please input the directory to the folder where ProductData.xlsx, MasterInvoice.pdf, and Order Files are located.')
     directory = directory + '\\'
 
     try:
@@ -28,7 +28,6 @@ while True:
     except:
         show_message('Error','Please make sure you entered the correct folder path, with the necessary files in the folder.')    
 
-print(directory)
 #2
 product_descriptions = {}
 product_data = pd.read_excel(directory+'ProductData.xlsx',sheet_name='Descriptions')
