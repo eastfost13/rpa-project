@@ -1,5 +1,5 @@
 # IMPORT PACKAGES IN
-#1
+
 import os
 import openpyxl
 import pandas as pd
@@ -12,6 +12,23 @@ pd.options.display.float_format = '{:,.2f}'.format # Display option to include 2
 pd.set_option('display.max_columns', None) # Display option to show all columns
 pd.set_option('display.max_rows', None) # Display option to show all rows
 
+#1
+while True:
+    directory = single_input('Please input the directory to the folder where ProductData.xlsx, MaterInvoice.pdf, and Order Files are located.')
+    directory = directory + '\\'
+
+    try:
+        file_names = ['ProductData.xlsx', 'MasterInvoice.pdf', 'Order1.xlsx', 'Order2.xlsx', 'Order3.xlsx', 'Order4.xlsx']
+        directory_files = os.listdir(directory)
+
+        if file_names[0] in directory_files and file_names[1] in directory_files and file_names[2] in directory_files and file_names[3] in directory_files and file_names[4] in directory_files and file_names[5] in directory_files:
+            break
+        else:
+            show_message('Error','Please make sure you entered the correct folder path, with the necessary files in the folder.')
+    except:
+        show_message('Error','Please make sure you entered the correct folder path, with the necessary files in the folder.')    
+
+print(directory)
 #2
 product_descriptions = {}
 product_data = pd.read_excel(directory+'ProductData.xlsx',sheet_name='Descriptions')
